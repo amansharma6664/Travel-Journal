@@ -55,7 +55,7 @@ export default function TripsPage() {
 
   const saveEdit = async () => {
     if (!editingTripId) return;
-
+ 
     const res = await fetch(`/api/trips/${editingTripId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

@@ -135,3 +135,6 @@ Add AI-based suggestions for trip planning
 Deploy notifications for upcoming trips
 Integrate social sharing features
 Add image uploads for trips
+
+Live Demo: Deployed on Netlify
+"https://traveljournalwebsite.netlify.app/"   

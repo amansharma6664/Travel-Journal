@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     await connectDB();
     const { name, email, password } = await req.json();
 
-    if (!email || !password) {
+    if (!email || !password) { 
       return NextResponse.json(
         { error: "Email and password are required" },
         { status: 400 }

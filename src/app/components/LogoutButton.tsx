@@ -13,7 +13,7 @@ export default function LogoutButton({ onLogout }: LogoutButtonProps) {
     if (onLogout) onLogout();
     router.push("/");  
   };
-
+ 
   return (
     <button
       onClick={handleLogout}

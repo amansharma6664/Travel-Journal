@@ -19,7 +19,7 @@ export default function Header() {
       {/* Navigation */}
       <nav>
         {pathname === "/" && !isLoggedIn ? (
-          <div className="space-x-2">
+          <div className="space-x-2"> 
             <Link  
               href="/login"
               className="bg-white text-black px-3 py-1 rounded hover:bg-gray-200 transition"

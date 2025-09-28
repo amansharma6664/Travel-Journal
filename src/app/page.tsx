@@ -17,7 +17,7 @@ export default function Home() {
         <h2 className="text-5xl font-extrabold text-blue-700 mb-4">
           Capture Your Journeys ✈️
         </h2>
-        <p className="text-lg text-gray-700 mb-6 max-w-xl">
+        <p className="text-lg text-gray-700 mb-6 max-w-xl"> 
           Keep track of all your adventures, memories, and trips in one simple
           place. Start journaling today and never forget your amazing
           experiences!

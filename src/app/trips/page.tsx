@@ -167,7 +167,7 @@ export default function TripsPage() {
                   >
                     Delete
                   </button>
-                </div>
+                </div>  
               </div>
             )}
           </li>

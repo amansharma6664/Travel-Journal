@@ -14,7 +14,7 @@ export default function SignupPage() {
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError(null);
+    setError(null);  
 
     try {
       const res = await fetch("/api/auth/signup", {

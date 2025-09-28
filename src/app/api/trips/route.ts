@@ -11,6 +11,6 @@ export async function GET() {
 export async function POST(req: Request) {
   await connectDB();
   const { title, description, date } = await req.json();
-  const trip = await Trip.create({ title, description, date });
+  const trip = await Trip.create({ title, description, date }); 
   return NextResponse.json(trip, { status: 201 });
 }

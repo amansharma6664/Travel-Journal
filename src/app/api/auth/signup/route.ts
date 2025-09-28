@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = await User.create({ name, email, password: hashedPassword });
+    const user = await User.create({ name, email, password: hashedPassword }); 
 
     if (!process.env.JWT_SECRET) {
       return NextResponse.json(

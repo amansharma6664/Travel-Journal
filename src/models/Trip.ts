@@ -7,3 +7,4 @@ const TripSchema = new Schema({
 });
 
 export default models.Trip || model("Trip", TripSchema);
+ 

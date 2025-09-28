@@ -11,7 +11,7 @@ export default function LogoutButton({ onLogout }: LogoutButtonProps) {
   const handleLogout = () => {
     localStorage.removeItem("token");
     if (onLogout) onLogout();
-    router.push("/");
+    router.push("/");  
   };
 
   return (

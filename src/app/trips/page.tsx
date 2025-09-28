@@ -2,8 +2,15 @@
 import LogoutButton from "../components/LogoutButton";
 import { useState, useEffect } from "react";
 
+interface Trip {
+  _id: string;
+  title: string;
+  description: string;
+  date: string;
+}
+
 export default function TripsPage() {
-  const [trips, setTrips] = useState<any[]>([]);
+  const [trips, setTrips] = useState<Trip[]>([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
@@ -39,7 +46,7 @@ export default function TripsPage() {
     setTrips(trips.filter((trip) => trip._id !== id));
   };
 
-  const startEdit = (trip: any) => {
+  const startEdit = (trip: Trip) => {
     setEditingTripId(trip._id);
     setEditTitle(trip.title);
     setEditDescription(trip.description);

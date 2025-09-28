@@ -28,8 +28,8 @@ export default function LoginPage() {
 
       localStorage.setItem("token", data.token);
       router.push("/trips");
-    } catch (err: any) {
-      setError(err.message || "Something went wrong");
+    } catch (err: unknown) {
+      setError((err as Error).message || "Something went wrong");
     } finally {
       setLoading(false);
     }

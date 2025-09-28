@@ -19,18 +19,18 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Trip from "@/models/Trip";
 
-interface Params {
-  params: { id: string };
-}
-
-export async function PUT(req: NextRequest, { params }: Params) {
+export async function PUT(req: NextRequest) {
   try {
     await connectDB();
+
+    // Extract the ID from the URL
+    const id = req.nextUrl.pathname.split("/").pop(); 
+    if (!id) return NextResponse.json({ error: "Trip ID missing" }, { status: 400 });
 
     const { title, description, date } = await req.json();
 
     const updatedTrip = await Trip.findByIdAndUpdate(
-      params.id,
+      id,
       { title, description, date },
       { new: true }
     );
@@ -40,23 +40,28 @@ export async function PUT(req: NextRequest, { params }: Params) {
     }
 
     return NextResponse.json(updatedTrip);
-  } catch (err: unknown) {
+  } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: Params) {
+export async function DELETE(req: NextRequest) {
   try {
     await connectDB();
 
-    const deletedTrip = await Trip.findByIdAndDelete(params.id);
+    // Extract the ID from the URL
+    const id = req.nextUrl.pathname.split("/").pop();
+    if (!id) return NextResponse.json({ error: "Trip ID missing" }, { status: 400 });
+
+    const deletedTrip = await Trip.findByIdAndDelete(id);
 
     if (!deletedTrip) {
       return NextResponse.json({ error: "Trip not found" }, { status: 404 });
     }
 
     return NextResponse.json({ message: "Deleted successfully" });
-  } catch (err: unknown) {
+  } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
+
